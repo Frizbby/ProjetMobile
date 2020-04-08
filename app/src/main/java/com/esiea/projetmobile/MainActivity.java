@@ -12,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,15 +22,25 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    static final String BASE_URL = "https://api.giphy.com/";
+
     private RecyclerView recyclerView;
     private ListAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        showList();
+        makeApiCall();
+
+
+    }
+
+    private void showList() {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         // use this setting to
         // improve performance if you know that changes
@@ -50,15 +61,13 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new ListAdapter(input);
         recyclerView.setAdapter(mAdapter);
 
-        makeApiCall();
+
     }
     /*public void page1 (View view){
         startActivity(new Intent(this, page_2.class));
     }
 
 */
-
-
 
 
 
@@ -75,26 +84,32 @@ public class MainActivity extends AppCompatActivity {
 
             GiphyApi giphyApi = retrofit.create(GiphyApi.class);
 
-            Call<List<RestGIPHYResponse>> call = giphyApi.getGiphyResponse();
-            call.enqueue(new Callback<List<RestGIPHYResponse>>() {
+            Call<RestGIPHYResponse> call = giphyApi.getGiphyResponse();
+            call.enqueue(new Callback<RestGIPHYResponse>() {
                 @Override
-                public void onResponse(Call<List<RestGIPHYResponse>> call, Response<List<RestGIPHYResponse>> response) {
+                public void onResponse(Call<RestGIPHYResponse> call, Response<RestGIPHYResponse> response) {
                     if(response.isSuccessful() & response.body()!=null){
 
                         List<Giphy> giphyList = response.body().getData();
+                        Toast.makeText(getApplicationContext(), "API SUCCESS", Toast.LENGTH_SHORT).show();
                     }
-                    /*else{
+                    else{
                         showError();
-                    }*/
+                    }
 
                 }
 
                 @Override
-                public void onFailure(Call<List<RestGIPHYResponse>> call, Throwable t) {
-                   // ShowError();
+                public void onFailure(Call<RestGIPHYResponse> call, Throwable t) {
+                    showError();
                 }
+
             });
 
 
+    }
+
+    private void showError() {
+        Toast.makeText(getApplicationContext(), "API ERROR", Toast.LENGTH_SHORT).show();
     }
 }
