@@ -8,7 +8,7 @@ import retrofit2.http.Query;
 
 public interface GiphyApi {
 
-    @GET("/v1/gifs/trending?api_key=oCZPRvBBJvrZ56WFhBiBYPpY9NL5utJW")
+    @GET("/v1/gifs/trending?api_key=oCZPRvBBJvrZ56WFhBiBYPpY9NL5utJW&limit=25&rating=G")
     Call<RestGIPHYResponse> getGiphyResponse();
 
   /*  @GET("api.giphy.com/v1/gifs/search")
