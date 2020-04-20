@@ -8,7 +8,7 @@ import retrofit2.http.Query;
 
 public interface GiphyApi {
 
-    @GET("/pokemon/ditto")
+    @GET("/v1/gifs/search?api_key=oCZPRvBBJvrZ56WFhBiBYPpY9NL5utJW&q=cat&limit=1&offset=0&rating=G&lang=en")
     Call<RestGIPHYResponse> getGiphyResponse();
 
   /*  @GET("api.giphy.com/v1/gifs/search")
