@@ -22,7 +22,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    static final String BASE_URL = "https://api.giphy.com";
+    static final String BASE_URL = "https://pokeapi.co/api/v2/";
 
     private RecyclerView recyclerView;
     private ListAdapter mAdapter;
@@ -86,17 +86,17 @@ public class MainActivity extends AppCompatActivity {
             //Toast.makeText(getApplicationContext(), "API SUCCESS", Toast.LENGTH_SHORT).show();
             Call<RestGIPHYResponse> call = giphyApi.getGiphyResponse();
 
-            call.enqueue(new Callback<RestGIPHYResponse>() {
-                @Override
 
+            call.enqueue(new Callback<RestGIPHYResponse>() {
+
+                @Override
                 public void onResponse(Call<RestGIPHYResponse> call, Response<RestGIPHYResponse> response) {
 
-                    if(response.isSuccessful() & response.body()!=null){
+                    if (response.isSuccessful() & response.body() != null) {
 
                         List<Giphy> giphyList = response.body().getData();
                         Toast.makeText(getApplicationContext(), "API SUCCESS", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
+                    } else {
                         showError();
                     }
 
