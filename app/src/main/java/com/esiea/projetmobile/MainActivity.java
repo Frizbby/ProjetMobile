@@ -12,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.webkit.WebSettings;
@@ -19,6 +20,13 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.drawee.view.DraweeHolder;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.facebook.imagepipeline.core.ImageTranscoderType;
+import com.facebook.imagepipeline.core.MemoryChunkType;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -37,15 +45,29 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private SharedPreferences sharedPreferences;
     private Gson gson;
-        WebView webView;
+    private Context applicationContext;
+    private DraweeHolder mSimpleDraweeView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fresco.initialize(this);
+
+        /*Fresco.initialize(
+                applicationContext,
+                ImagePipelineConfig.newBuilder(applicationContext)
+                        .setMemoryChunkType(MemoryChunkType.BUFFER_MEMORY)
+                        .setImageTranscoderType(ImageTranscoderType.JAVA_TRANSCODER)
+                        .experiment().setNativeCodeDisabled(true)
+                        .build());*/
         setContentView(R.layout.activity_main);
 
 
+
+        Uri uri = Uri.parse("https://www.tela-botanica.org/wp-content/uploads/2019/08/tree-3822149_1920-700x466.jpg");
+        SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.my_image_view);
+        draweeView.setImageURI(uri);
    // webView=findViewById(R.id.web_view);
 
    // WebSettings webSettings = webView.getSettings();
@@ -62,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
     List<Giphy> giphyList = getDataFromCache();
 
-        if (giphyList != null){
+    if (giphyList != null){
             showList(giphyList);
         } else {
             makeApiCall();
