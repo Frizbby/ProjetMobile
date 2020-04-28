@@ -71,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private List<Giphy> getDataFromCache() {
-       String jsonGiphy = sharedPreferences.getString("jsonGiphyList",null);
+       String jsonGiphy = sharedPreferences.getString(Constants.KEY_GIPHY_LIST,null);
+
        if (jsonGiphy == null){
            return null;
        } else{
@@ -155,13 +156,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void saveList(List<Giphy> giphyList) {
-    String jsonString = gson.toJson((giphyList));
+    String jsonString = gson.toJson(giphyList);
         sharedPreferences
                 .edit()
-                .putString("jsonGiphyList",jsonString)
+                .putString(Constants.KEY_GIPHY_LIST,jsonString)
                 .apply();
 
-        Toast.makeText(getApplicationContext(), "LIST SAUVGERADEE ", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "LIST saved ", Toast.LENGTH_SHORT).show();
 
     }
 
