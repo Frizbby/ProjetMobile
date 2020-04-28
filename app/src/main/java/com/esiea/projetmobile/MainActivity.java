@@ -9,14 +9,22 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
+
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ListAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private SharedPreferences sharedPreferences;
+    private Gson gson;
+        WebView webView;
 
 
     @Override
@@ -35,10 +46,41 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        makeApiCall();
+   // webView=findViewById(R.id.web_view);
 
+   // WebSettings webSettings = webView.getSettings();
+   // webSettings.setJavaScriptEnabled(true);
+
+   // String url = "https://media.giphy.com/media/QIkavkylBv0Z2/giphy.gif";
+    //webView.loadUrl(url);
+
+
+        sharedPreferences = getSharedPreferences("application_giphy", Context.MODE_PRIVATE);
+        gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+    List<Giphy> giphyList = getDataFromCache();
+
+        if (giphyList != null){
+            showList(giphyList);
+        } else {
+            makeApiCall();
+        }
 
     }
+
+    private List<Giphy> getDataFromCache() {
+       String jsonGiphy = sharedPreferences.getString("jsonGiphyList",null);
+       if (jsonGiphy == null){
+           return null;
+       } else{
+           Type listType = new TypeToken<List<Giphy>>(){}.getType();
+           return gson.fromJson(jsonGiphy, listType);
+       }
+
+    }
+
 
     private void showList(List<Giphy> giphyList) {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -73,9 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void makeApiCall(){
 
-            Gson gson = new GsonBuilder()
-                    .setLenient()
-                    .create();
+
 
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
@@ -96,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
                         List<Giphy> giphyList = response.body().getData();
                         Toast.makeText(getApplicationContext(), "API SUCCESS", Toast.LENGTH_SHORT).show();
+                        saveList(giphyList);
                         showList(giphyList);
                     } else {
                         showError();
@@ -110,6 +151,17 @@ public class MainActivity extends AppCompatActivity {
 
             });
 
+
+    }
+
+    private void saveList(List<Giphy> giphyList) {
+    String jsonString = gson.toJson((giphyList));
+        sharedPreferences
+                .edit()
+                .putString("jsonGiphyList",jsonString)
+                .apply();
+
+        Toast.makeText(getApplicationContext(), "LIST SAUVGERADEE ", Toast.LENGTH_SHORT).show();
 
     }
 
