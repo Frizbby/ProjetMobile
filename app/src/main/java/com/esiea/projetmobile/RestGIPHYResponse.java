@@ -8,9 +8,8 @@ public class RestGIPHYResponse {
 private List<Giphy> data;
 
 
-    public List<Giphy> getData() {
-        return data;
-    }
+
+    public List<Giphy> getData() { return data; }
 }
 
 /*

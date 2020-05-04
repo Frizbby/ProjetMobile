@@ -41,5 +41,5 @@
         android:text="Example application"
         android:textSize="16sp"
         fresco:ignore="UnknownId" />
-    -->
+
 </RelativeLayout>
