@@ -24,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.DraweeHolder;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private Gson gson;
     private Context applicationContext;
-    private DraweeHolder mSimpleDraweeView;
+
 
 
     @Override
@@ -59,13 +60,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Fresco.initialize(this);
 
-
         setContentView(R.layout.activity_main);
 
+        final SimpleDraweeView mSimpleDraweeView = findViewById(R.id.my_image_view);
 
-        Uri uri;
         DraweeController controller = Fresco.newDraweeControllerBuilder()
-                .setUri("https://media0.giphy.com/media/mlvseq9yvZhba/giphy.gif?cid=f6f3409e55ce6d8dca39c4b0f460214bea6654f8e7344cd2&rid=giphy.gif")
+                .setUri("https://media3.giphy.com/media/mlvseq9yvZhba/giphy.gif?cid=f6f3409eb5f7206b7232ffbffbaf2493ddc01a9cda8918a4&rid=giphy.gif")
                 .setAutoPlayAnimations(true)
                 .build();
         mSimpleDraweeView.setController(controller);
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         // of the RecyclerView
         recyclerView.setHasFixedSize(true);
         // use a linear layout manager
-        layoutManager = new GridLayoutManager(this,3);
+        layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
 

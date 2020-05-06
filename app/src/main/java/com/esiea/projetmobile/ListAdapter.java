@@ -1,5 +1,6 @@
 package com.esiea.projetmobile;
 
+import android.telephony.euicc.DownloadableSubscription;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,8 +70,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         final Giphy currentGiphy = values.get(position);
-        holder.txtHeader.setText(currentGiphy.getUrl());
-        holder.txtFooter.setText(currentGiphy.getUrl());
+        holder.txtHeader.setText(Giphy.getImages().getD());
+        holder.txtFooter.setText(currentGiphy.getEmbedUrl());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
