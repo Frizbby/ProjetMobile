@@ -23,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.esiea.projetmobile.model.Giphy;
+import com.esiea.projetmobile.model.RestGiphyResponse;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.interfaces.DraweeController;
@@ -152,13 +154,13 @@ public class MainActivity extends AppCompatActivity {
 
             GiphyApi giphyApi = retrofit.create(GiphyApi.class);
             //Toast.makeText(getApplicationContext(), "API SUCCESS", Toast.LENGTH_SHORT).show();
-            Call<RestGIPHYResponse> call = giphyApi.getGiphyResponse();
+            Call<RestGiphyResponse> call = giphyApi.getGiphyResponse();
 
 
-            call.enqueue(new Callback<RestGIPHYResponse>() {
+            call.enqueue(new Callback<RestGiphyResponse>() {
 
                 @Override
-                public void onResponse(Call<RestGIPHYResponse> call, Response<RestGIPHYResponse> response) {
+                public void onResponse(Call<RestGiphyResponse> call, Response<RestGiphyResponse> response) {
 
                     if (response.isSuccessful() & response.body() != null) {
 
@@ -173,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(Call<RestGIPHYResponse> call, Throwable t) {
+                public void onFailure(Call<RestGiphyResponse> call, Throwable t) {
                     showError();
                 }
 

@@ -1,15 +1,15 @@
 package com.esiea.projetmobile;
 
-import android.telephony.euicc.DownloadableSubscription;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.List;
-
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.esiea.projetmobile.model.Giphy;
+
+import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Giphy> values;
@@ -70,7 +70,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         final Giphy currentGiphy = values.get(position);
-        holder.txtHeader.setText(Giphy.getImages().getD());
+        holder.txtHeader.setText(currentGiphy.getImages().getDownsizedLarge().getUrl());
         holder.txtFooter.setText(currentGiphy.getEmbedUrl());
     }
 
