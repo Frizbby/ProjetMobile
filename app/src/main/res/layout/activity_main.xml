@@ -7,8 +7,10 @@
     xmlns:fresco="http://schemas.android.com/tools"
     tools:context=".MainActivity"
     android:background="@color/colorBackground"
-    android:padding="10dp"
-    >
+    android:padding="10dp">
+
+
+
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -20,16 +22,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
+
+
+<!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/my_image_view"
+            android:id="@+id/my_image_view2"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginTop="200dp"
             fresco:placeholderImage="@drawable/my_drawable"
             tools:ignore="MissingConstraints" />
-    </LinearLayout>
-
+    </LinearLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

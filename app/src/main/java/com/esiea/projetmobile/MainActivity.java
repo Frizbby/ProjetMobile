@@ -64,14 +64,14 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        final SimpleDraweeView mSimpleDraweeView = findViewById(R.id.my_image_view);
-
+        final SimpleDraweeView mSimpleDraweeView = findViewById(R.id.my_image_view2);
+/*
         DraweeController controller = Fresco.newDraweeControllerBuilder()
                 .setUri("https://media3.giphy.com/media/mlvseq9yvZhba/giphy.gif?cid=f6f3409eb5f7206b7232ffbffbaf2493ddc01a9cda8918a4&rid=giphy.gif")
                 .setAutoPlayAnimations(true)
                 .build();
         mSimpleDraweeView.setController(controller);
-
+*/
        /* Uri uri = Uri.parse("https://media0.giphy.com/media/mlvseq9yvZhba/giphy.gif?cid=f6f3409e55ce6d8dca39c4b0f460214bea6654f8e7344cd2&rid=giphy.gif");
         SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.my_image_view);
         draweeView.setImageURI(uri);*/

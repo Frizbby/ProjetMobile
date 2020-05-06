@@ -1,19 +1,27 @@
 package com.esiea.projetmobile;
 
+import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.esiea.projetmobile.model.Giphy;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<Giphy> values;
-
+    //private Context context;
+    public SimpleDraweeView mSimpleDraweeView;
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -22,12 +30,16 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         TextView txtHeader;
         TextView txtFooter;
         View layout;
+       // public ImageView imageView;
+
 
         ViewHolder(View v) {
             super(v);
             layout = v;
+           // imageView = (ImageView) v.findViewById(R.id.image_view);
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
+            mSimpleDraweeView = v.findViewById(R.id.my_image_view);
 
 
         }
@@ -70,8 +82,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         final Giphy currentGiphy = values.get(position);
+
+        DraweeController controller = Fresco.newDraweeControllerBuilder()
+                .setUri(currentGiphy.getUrl())
+                .setAutoPlayAnimations(true)
+                .build();
+        mSimpleDraweeView.setController(controller);
         holder.txtHeader.setText(currentGiphy.getImages().getDownsizedLarge().getUrl());
-        holder.txtFooter.setText(currentGiphy.getEmbedUrl());
+        holder.txtFooter.setText(currentGiphy.getUrl());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
