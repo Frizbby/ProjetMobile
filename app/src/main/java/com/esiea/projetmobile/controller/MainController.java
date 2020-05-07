@@ -1,27 +1,22 @@
 package com.esiea.projetmobile.controller;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import com.esiea.projetmobile.Constants;
-import com.esiea.projetmobile.data.GiphyApi;
+import com.esiea.projetmobile.Singletons;
 import com.esiea.projetmobile.model.Giphy;
 import com.esiea.projetmobile.model.RestGiphyResponse;
 import com.esiea.projetmobile.view.MainActivity;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Type;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainController {
 
@@ -49,14 +44,8 @@ public void onStart(){
 }
     private void makeApiCall(){
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        GiphyApi giphyApi = retrofit.create(GiphyApi.class);
         //Toast.makeText(getApplicationContext(), "API SUCCESS", Toast.LENGTH_SHORT).show();
-        Call<RestGiphyResponse> call = giphyApi.getGiphyResponse();
+        Call<RestGiphyResponse> call = Singletons.getGiphyApi().getGiphyResponse();
 
 
         call.enqueue(new Callback<RestGiphyResponse>() {

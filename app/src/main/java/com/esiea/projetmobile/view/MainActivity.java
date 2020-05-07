@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.esiea.projetmobile.Constants;
 import com.esiea.projetmobile.R;
+import com.esiea.projetmobile.Singletons;
 import com.esiea.projetmobile.controller.MainController;
 import com.esiea.projetmobile.data.GiphyApi;
 import com.esiea.projetmobile.model.Giphy;
@@ -67,10 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         mainController = new MainController(
                 this,
-                new GsonBuilder()
-                        .setLenient()
-                        .create(),
-                getSharedPreferences("application_giphy", Context.MODE_PRIVATE)
+                Singletons.getGson(),
+                Singletons.getSharedPreferences(getApplicationContext())
         );
         mainController.onStart();
 
