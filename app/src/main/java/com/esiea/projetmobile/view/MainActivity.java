@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.widget.Toast;
@@ -95,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void navigateToDetails(Giphy giphy) {
+        Intent myIntent = new Intent(MainActivity.this, DetailActivity.class);
+        myIntent.putExtra("giphyKey", Singletons.getGson().toJson(giphy));
+        MainActivity.this.startActivity(myIntent);
         Toast.makeText(getApplicationContext(), "T AS CLIQUE", Toast.LENGTH_SHORT).show();
 
     }
