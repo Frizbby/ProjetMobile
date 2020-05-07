@@ -3,31 +3,18 @@ package com.esiea.projetmobile.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.widget.Toast;
 
-import com.esiea.projetmobile.Constants;
 import com.esiea.projetmobile.R;
 import com.esiea.projetmobile.Singletons;
 import com.esiea.projetmobile.controller.MainController;
-import com.esiea.projetmobile.data.GiphyApi;
 import com.esiea.projetmobile.model.Giphy;
-import com.esiea.projetmobile.model.RestGiphyResponse;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -82,37 +69,33 @@ public class MainActivity extends AppCompatActivity {
 
     public void showList(List<Giphy> giphyList) {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        // use this setting to
-        // improve performance if you know that changes
-        // in content do not change the layout size
-        // of the RecyclerView
         recyclerView.setHasFixedSize(true);
-        // use a linear layout manager
         layoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(layoutManager);
 
 
-      /*  List<String> input = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            input.add("Test" + i);
-        }*/
-
         // define an adapter
-        mAdapter = new ListAdapter(giphyList);
+        mAdapter = new ListAdapter(giphyList, new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Giphy item) {
+                mainController.onItemClick(item);
+            }
+        });
         recyclerView.setAdapter(mAdapter);
 
 
     }
-    /*public void page1 (View view){
-        startActivity(new Intent(this, page_2.class));
-    }
 
-*/
 
 
 
 
     public void showError() {
         Toast.makeText(getApplicationContext(), "API ERROR", Toast.LENGTH_SHORT).show();
+    }
+
+    public void navigateToDetails(Giphy giphy) {
+        Toast.makeText(getApplicationContext(), "T AS CLIQUE", Toast.LENGTH_SHORT).show();
+
     }
 }

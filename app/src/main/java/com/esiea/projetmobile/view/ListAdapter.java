@@ -21,12 +21,21 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
+
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener{
+        void onItemClick(Giphy item);
+    }
+
+
     class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         //TextView txtHeader;
         //TextView txtFooter;
         View layout;
        // public ImageView imageView;
+
 
 
         ViewHolder(View v) {
@@ -52,8 +61,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public ListAdapter(List<Giphy> myDataset) {
-        values = myDataset;
+    public ListAdapter(List<Giphy> myDataset, OnItemClickListener listener) {
+        this.values = myDataset;
+        this.listener = listener;
     }
 
     // Create new views (invoked by the layout manager)
@@ -86,6 +96,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         mSimpleDraweeView.setController(controller);
         //holder.txtHeader.setText(currentGiphy.getTitle());
         //holder.txtFooter.setText(currentGiphy.getTitle());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                listener.onItemClick(currentGiphy);
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)

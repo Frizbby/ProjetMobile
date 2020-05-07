@@ -99,11 +99,8 @@ public void onStart(){
     }
 
 
-
-
-
     public void onItemClick(Giphy giphy){
-
+        view.navigateToDetails(giphy);
 }
 
 
