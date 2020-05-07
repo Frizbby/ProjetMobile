@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.esiea.projetmobile.Constants;
 import com.esiea.projetmobile.R;
+import com.esiea.projetmobile.controller.MainController;
 import com.esiea.projetmobile.data.GiphyApi;
 import com.esiea.projetmobile.model.Giphy;
 import com.esiea.projetmobile.model.RestGiphyResponse;
@@ -30,16 +31,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    static final String BASE_URL = "https://api.giphy.com";
-
     private RecyclerView recyclerView;
     private ListAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private SharedPreferences sharedPreferences;
-    private Gson gson;
     private Context applicationContext;
 
-
+    private MainController mainController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,35 +65,23 @@ public class MainActivity extends AppCompatActivity {
     //webView.loadUrl(url);
 
 
-        sharedPreferences = getSharedPreferences("application_giphy", Context.MODE_PRIVATE);
-        gson = new GsonBuilder()
-                .setLenient()
-                .create();
+        mainController = new MainController(
+                this,
+                new GsonBuilder()
+                        .setLenient()
+                        .create(),
+                getSharedPreferences("application_giphy", Context.MODE_PRIVATE)
+        );
+        mainController.onStart();
 
-    List<Giphy> giphyList = getDataFromCache();
 
-    if (giphyList != null){
-            showList(giphyList);
-        } else {
-            makeApiCall();
-        }
 
-    }
-
-    private List<Giphy> getDataFromCache() {
-       String jsonGiphy = sharedPreferences.getString(Constants.KEY_GIPHY_LIST,null);
-
-       if (jsonGiphy == null){
-           return null;
-       } else{
-           Type listType = new TypeToken<List<Giphy>>(){}.getType();
-           return gson.fromJson(jsonGiphy, listType);
-       }
 
     }
 
 
-    private void showList(List<Giphy> giphyList) {
+
+    public void showList(List<Giphy> giphyList) {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         // use this setting to
         // improve performance if you know that changes
@@ -127,59 +112,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private void makeApiCall(){
 
-
-
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create(gson))
-                    .build();
-
-            GiphyApi giphyApi = retrofit.create(GiphyApi.class);
-            //Toast.makeText(getApplicationContext(), "API SUCCESS", Toast.LENGTH_SHORT).show();
-            Call<RestGiphyResponse> call = giphyApi.getGiphyResponse();
-
-
-            call.enqueue(new Callback<RestGiphyResponse>() {
-
-                @Override
-                public void onResponse(Call<RestGiphyResponse> call, Response<RestGiphyResponse> response) {
-
-                    if (response.isSuccessful() & response.body() != null) {
-
-                        List<Giphy> giphyList = response.body().getData();
-                        Toast.makeText(getApplicationContext(), "API SUCCESS", Toast.LENGTH_SHORT).show();
-                        saveList(giphyList);
-                        showList(giphyList);
-                    } else {
-                        showError();
-                    }
-
-                }
-
-                @Override
-                public void onFailure(Call<RestGiphyResponse> call, Throwable t) {
-                    showError();
-                }
-
-            });
-
-
-    }
-
-    private void saveList(List<Giphy> giphyList) {
-    String jsonString = gson.toJson(giphyList);
-        sharedPreferences
-                .edit()
-                .putString(Constants.KEY_GIPHY_LIST,jsonString)
-                .apply();
-
-        Toast.makeText(getApplicationContext(), "LIST saved ", Toast.LENGTH_SHORT).show();
-
-    }
-
-    private void showError() {
+    public void showError() {
         Toast.makeText(getApplicationContext(), "API ERROR", Toast.LENGTH_SHORT).show();
     }
 }
