@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,34 +9,48 @@
     android:background="@color/colorBackground">
 
 
+    <LinearLayout
+        android:id="@+id/mon_image_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="200px">
 
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/my_image_view_detail"
+            android:layout_width="1000px"
+            android:layout_height="1000px"
+            fresco:placeholderImage="@drawable/my_drawable" />
+    </LinearLayout>
 
 
     <TextView
         android:id="@+id/detail_txt"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_below="@+id/mon_image_detail"
+        android:layout_marginTop="70dp"
+        android:fontFamily="serif"
+        android:gravity="center"
         android:text="@string/detail_text_description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        fresco:ignore="UnknownId" />
 
 
+    <!--
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-
-
-<!--
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/my_image_view2"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="200dp"
-            fresco:placeholderImage="@drawable/my_drawable"
-            tools:ignore="MissingConstraints" />
-    </LinearLayout>-->
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/my_image_view2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="200dp"
+                fresco:placeholderImage="@drawable/my_drawable"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>-->
+</RelativeLayout>

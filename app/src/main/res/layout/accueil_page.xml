@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity"
+    xmlns:fresco="http://schemas.android.com/tools"
+    android:background="@color/colorBackground">
+<!--
+    <LinearLayout
+        android:id="@+id/mon_image_accueiltwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/my_image_view_accueiltwo"
+            android:layout_width="1080px"
+            android:layout_height="2160px"
+            fresco:placeholderImage="@drawable/my_drawable" />
+    </LinearLayout>
+-->
+    <LinearLayout
+        android:id="@+id/mon_image_accueil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150sp"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_accueil"
+        tools:ignore="MissingConstraints">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/my_image_view_accueil"
+            android:layout_width="1000px"
+            android:layout_height="1000px"
+            fresco:placeholderImage="@drawable/my_drawable" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/text_accueil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="127dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center_horizontal"
+        android:text="@string/text_bvn"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_accueil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mon_image_accueil"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/bouton_entrer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mon_image_accueil" />
+
+
+</RelativeLayout>

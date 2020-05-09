@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         Intent myIntent = new Intent(MainActivity.this, DetailActivity.class);
         myIntent.putExtra("giphyKey", Singletons.getGson().toJson(giphy));
         MainActivity.this.startActivity(myIntent);
-        Toast.makeText(getApplicationContext(), "T AS CLIQUE", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "RETURN", Toast.LENGTH_SHORT).show();
 
     }
 }

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ProjetMobile</string>
     <string name="detail_text_description">Ecran Detail</string>
+    <string name="button_return">RETOUR</string>
+    <string name="bouton_entrer">ENTRER</string>
+    <string name="text_bvn">Bienvenue</string>
 </resources>
