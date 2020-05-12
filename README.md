@@ -49,8 +49,23 @@
 	<ul>
 		<li>Page de bienvenue de l'application avec un bouton "ENTRER"</li>
 	</ul>
+	<p>
+		<a href=""></a>
+	</p>
 <h3>Grille de GIFs</h3>
-
+	<ul>
+		<li>Page principale de l'application avec l'affichage d'une grille de GIF</li>
+	</ul>
+	<p>
+		<a href=""></a>
+	</p>
 <h3>Page de détails</h3>
-
+	<ul>
+		<li>GIF choisi dans une plus grande taille</li>
+		<li>récupération du nom du GIF ciblé</li>
+		<li>Ajout d'une flèche en haut à gauche afind e revenir à l'activité précédente</li>
+	</ul>
+	<p>
+		<a href=""></a>
+	</p>
 
