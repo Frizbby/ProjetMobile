@@ -1,10 +1,8 @@
-# Projet Mobile Giphy
+<h1 align="center">
+	Projet Mobile Giphy
+</h1>
 
 <p align="center">
-  <b>Some Links:</b><br>
-  <a href="#">Link 1</a> |
-  <a href="#">Link 2</a> |
-  <a href="#">Link 3</a>
-  <br><br>
-  <img src="http://s.4cdn.org/image/title/105.gif">
+  <img src="https://media.giphy.com/media/7Q7SqFSRmzkFq/giphy.gif">
 </p>
+
