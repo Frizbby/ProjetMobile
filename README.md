@@ -22,4 +22,22 @@
 
 <h2>Consignes respectées</h2>
 
+<ul>
+	<li>Architecture MVC</li>
+	<li>Singletons</li>
+	<li>Design</li>
+	<li>Appels REST</li>
+	<li>Ecrans : 3 activités</li>
+	<li>Affichage du détail d'un élément</li>
+	<li>Fonctions supplémentairs :</li>
+	<li>
+		<li>Affichage d'une grille d'élements avec deux colonnes</li>
+		<li>Création d'une première page d'Accueil</li>
+		<li>Changement de l'icône de l'application</li>
+		<li>Changement de la couleur de l'application</li>
+	</li>
+</ul>
 
+<h2>Fonctionnalités</h2>
+
+<h3>Page d'Accueil</h3>
