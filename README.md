@@ -30,7 +30,6 @@
 <ul>
 	<li>Architecture MVC</li>
 	<li>Singletons</li>
-	<li>Design</li>
 	<li>Appels REST</li>
 	<li>Ecrans : 3 activités</li>
 	<li>Affichage du détail d'un élément</li>
