@@ -33,26 +33,6 @@ public class MainActivity extends AppCompatActivity {
         Fresco.initialize(this);
 
         setContentView(R.layout.activity_main);
-/*
-        final SimpleDraweeView mSimpleDraweeView = findViewById(R.id.my_image_view2);
-
-        DraweeController controller = Fresco.newDraweeControllerBuilder()
-                .setUri("https://media3.giphy.com/media/mlvseq9yvZhba/giphy.gif?cid=f6f3409eb5f7206b7232ffbffbaf2493ddc01a9cda8918a4&rid=giphy.gif")
-                .setAutoPlayAnimations(true)
-                .build();
-        mSimpleDraweeView.setController(controller);
-*/
-       /* Uri uri = Uri.parse("https://media0.giphy.com/media/mlvseq9yvZhba/giphy.gif?cid=f6f3409e55ce6d8dca39c4b0f460214bea6654f8e7344cd2&rid=giphy.gif");
-        SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.my_image_view);
-        draweeView.setImageURI(uri);*/
-   // webView=findViewById(R.id.web_view);
-
-   // WebSettings webSettings = webView.getSettings();
-   // webSettings.setJavaScriptEnabled(true);
-
-   // String url = "https://media.giphy.com/media/QIkavkylBv0Z2/giphy.gif";
-    //webView.loadUrl(url);
-
 
         mainController = new MainController(
                 this,
@@ -61,11 +41,7 @@ public class MainActivity extends AppCompatActivity {
         );
         mainController.onStart();
 
-
-
-
     }
-
 
 
     public void showList(List<Giphy> giphyList) {
@@ -83,12 +59,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         recyclerView.setAdapter(mAdapter);
-
-
     }
-
-
-
 
 
     public void showError() {
@@ -99,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         Intent myIntent = new Intent(MainActivity.this, DetailActivity.class);
         myIntent.putExtra("giphyKey", Singletons.getGson().toJson(giphy));
         MainActivity.this.startActivity(myIntent);
-        //Toast.makeText(getApplicationContext(), "RETURN", Toast.LENGTH_SHORT).show();
 
     }
 }

@@ -44,7 +44,6 @@ public void onStart(){
 }
     private void makeApiCall(){
 
-        //Toast.makeText(getApplicationContext(), "API SUCCESS", Toast.LENGTH_SHORT).show();
         Call<RestGiphyResponse> call = Singletons.getGiphyApi().getGiphyResponse();
 
 
@@ -56,7 +55,7 @@ public void onStart(){
                 if (response.isSuccessful() & response.body() != null) {
 
                     List<Giphy> giphyList = response.body().getData();
-                    Toast.makeText(view.getApplicationContext(), "API SUCCESS", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(view.getApplicationContext(), "API SUCCESS", Toast.LENGTH_SHORT).show(); Cette ligne sert à faire des tests
                     saveList(giphyList);
                     view.showList(giphyList);
                 } else {
@@ -82,7 +81,7 @@ public void onStart(){
                 .putString(Constants.KEY_GIPHY_LIST,jsonString)
                 .apply();
 
-        Toast.makeText(view.getApplicationContext(), "LIST saved ", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(view.getApplicationContext(), "LIST saved ", Toast.LENGTH_SHORT).show(); Cette ligne sert à faire des tests
 
     }
 

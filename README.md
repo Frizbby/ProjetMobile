@@ -56,7 +56,7 @@
 	</p>
 <h3>Grille de GIFs</h3>
 	<ul>
-		<li>Page principale de l'application avec l'affichage d'une grille de GIF</li>
+		<li>Page principale de l'application avec l'affichage d'une liste de GIF sous la forme d'une grille</li>
 	</ul>
 	<p>
 		<a href="https://github.com/Frizbby/ProjetMobile/blob/master/ImageGithub/Page_Principale.png">

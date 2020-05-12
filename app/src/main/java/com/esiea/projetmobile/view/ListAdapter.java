@@ -31,8 +31,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        //TextView txtHeader;
-        //TextView txtFooter;
         View layout;
        // public ImageView imageView;
 
@@ -41,9 +39,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         ViewHolder(View v) {
             super(v);
             layout = v;
-           // imageView = (ImageView) v.findViewById(R.id.image_view);
-//            txtHeader = (TextView) v.findViewById(R.id.firstLine);
-           // txtFooter = (TextView) v.findViewById(R.id.secondLine);
             mSimpleDraweeView = v.findViewById(R.id.my_image_view);
 
 
@@ -94,8 +89,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 .setAutoPlayAnimations(true)
                 .build();
         mSimpleDraweeView.setController(controller);
-        //holder.txtHeader.setText(currentGiphy.getTitle());
-        //holder.txtFooter.setText(currentGiphy.getTitle());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {

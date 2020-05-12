@@ -36,19 +36,13 @@ public class PageAccueil extends AppCompatActivity{
         });
 
         mSimpleDraweeView = findViewById(R.id.my_image_view_accueil);
-       /* mSimpleDraweeViewtwo = findViewById(R.id.my_image_view_accueiltwo);*/
 
         DraweeController controller = Fresco.newDraweeControllerBuilder()
                 .setUri("https://media.giphy.com/media/l0MYC0LajbaPoEADu/giphy.gif")
                 .setAutoPlayAnimations(true)
                 .build();
         mSimpleDraweeView.setController(controller);
-/*
-        DraweeController controller2 = Fresco.newDraweeControllerBuilder()
-                .setUri("https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif")
-                .setAutoPlayAnimations(true)
-                .build();
-        mSimpleDraweeViewtwo.setController(controller2);*/
+
     }
 
 
@@ -56,7 +50,6 @@ public class PageAccueil extends AppCompatActivity{
     public void navigateToMainActivity() {
         Intent myIntent = new Intent(PageAccueil.this, MainActivity.class);
         PageAccueil.this.startActivity(myIntent);
-        //Toast.makeText(getApplicationContext(), "RETURN", Toast.LENGTH_SHORT).show();
 
     }
 
