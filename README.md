@@ -18,6 +18,11 @@
 <ul>
 	<li>Installer Android Studio</li>
 	<li>Créer un compte Giphy et utiliser une clé pour faire nos appels REST</li>
+	<pre>
+		<code>
+			https://developers.giphy.com/docs/api/
+		</code>
+	</pre>
 </ul>
 
 <h2>Consignes respectées</h2>
@@ -41,3 +46,11 @@
 <h2>Fonctionnalités</h2>
 
 <h3>Page d'Accueil</h3>
+	<ul>
+		<li>Page de bienvenue de l'application avec un bouton "ENTRER"</li>
+	</ul>
+<h3>Grille de GIFs</h3>
+
+<h3>Page de détails</h3>
+
+
