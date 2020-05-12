@@ -18,12 +18,13 @@
 <ul>
 	<li>Installer Android Studio</li>
 	<li>Créer un compte Giphy et utiliser une clé pour faire nos appels REST</li>
+</ul>
 	<pre>
 		<code>
 			https://developers.giphy.com/docs/api/
 		</code>
 	</pre>
-</ul>
+
 
 <h2>Consignes respectées</h2>
 
