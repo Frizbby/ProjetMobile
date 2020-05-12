@@ -34,9 +34,9 @@
 	<li>Appels REST</li>
 	<li>Ecrans : 3 activités</li>
 	<li>Affichage du détail d'un élément</li>
-	<li>Fonctions supplémentairs :</li>
+	<li>Fonctions supplémentaires :</li>
 	<ul>
-		<li>Affichage d'une grille d'élements avec deux colonnes</li>
+		<li>Affichage d'une grille d'éléments avec deux colonnes</li>
 		<li>Création d'une première page d'Accueil</li>
 		<li>Changement de l'icône de l'application</li>
 		<li>Changement de la couleur de l'application</li>
@@ -65,9 +65,9 @@
 	</p>
 <h3>Page de détails</h3>
 	<ul>
-		<li>GIF choisi dans une plus grande taille</li>
-		<li>récupération du nom du GIF ciblé</li>
-		<li>Ajout d'une flèche en haut à gauche afind e revenir à l'activité précédente</li>
+		<li>Affichage du GIF choisi dans une plus grande taille</li>
+		<li>Récupération du nom du GIF ciblé</li>
+		<li>Ajout d'une flèche en haut à gauche afin de revenir à l'activité précédente</li>
 	</ul>
 	<p>
 		<a href="https://github.com/Frizbby/ProjetMobile/blob/master/ImageGithub/Page_D%C3%A9tail.png">
