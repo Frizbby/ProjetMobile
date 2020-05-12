@@ -11,13 +11,15 @@
 <h2>Présentation</h2>
 
 <p>Ce projet permet à l'utilisateur de découvrir une liste sous forme de grille affichant des GIFs en utilisant l'API Giphy.
-</br>Cette application a été codé en JAVA est respect l'architecture MVC, le principe SOLID. J'ai également utilisé des singletons. </p>
+</br>Cette application a été codé en JAVA </p>
 
 <h2>Prérequis</h2>
 
-<li>
-	<ul>test</ul>
-	<ul>test</ul>
-	<ul>test</ul>
-</li>
+<ul>
+	<li>Installer Android Studio</li>
+	<li>Créer un compte Giphy et utiliser une clé pour faire nos appels REST</li>
+</ul>
+
+<h2>Consignes respectées</h2>
+
 
