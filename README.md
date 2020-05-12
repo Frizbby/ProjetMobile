@@ -30,12 +30,12 @@
 	<li>Ecrans : 3 activités</li>
 	<li>Affichage du détail d'un élément</li>
 	<li>Fonctions supplémentairs :</li>
-	<li>
+	<ul>
 		<li>Affichage d'une grille d'élements avec deux colonnes</li>
 		<li>Création d'une première page d'Accueil</li>
 		<li>Changement de l'icône de l'application</li>
 		<li>Changement de la couleur de l'application</li>
-	</li>
+	</ul>
 </ul>
 
 <h2>Fonctionnalités</h2>
