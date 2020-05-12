@@ -50,14 +50,14 @@
 		<li>Page de bienvenue de l'application avec un bouton "ENTRER"</li>
 	</ul>
 	<p>
-		<a href=""></a>
+		<a href="https://github.com/Frizbby/ProjetMobile/blob/master/ImageGithub/Page_Accueil.png"></a>
 	</p>
 <h3>Grille de GIFs</h3>
 	<ul>
 		<li>Page principale de l'application avec l'affichage d'une grille de GIF</li>
 	</ul>
 	<p>
-		<a href=""></a>
+		<a href="https://github.com/Frizbby/ProjetMobile/blob/master/ImageGithub/Page_Principale.png"></a>
 	</p>
 <h3>Page de détails</h3>
 	<ul>
@@ -66,6 +66,6 @@
 		<li>Ajout d'une flèche en haut à gauche afind e revenir à l'activité précédente</li>
 	</ul>
 	<p>
-		<a href=""></a>
+		<a href="https://github.com/Frizbby/ProjetMobile/blob/master/ImageGithub/Page_D%C3%A9tail.png"></a>
 	</p>
 
